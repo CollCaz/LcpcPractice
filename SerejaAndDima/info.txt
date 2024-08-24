@@ -1,0 +1,4 @@
+link: https://codeforces.com/contest/381/problem/A
+rating: 800
+time started: 17:41 Sat 08/24/24
+time finished: 18:36 Sat 08/24/24
