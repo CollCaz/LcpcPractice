@@ -1,0 +1,4 @@
+link: https://codeforces.com/contest/294/problem/A
+rating: 800
+time started: 00:02 Sun 08/25/24
+time finished: 00:53 Sun 08/25/24
