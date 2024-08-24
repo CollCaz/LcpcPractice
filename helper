@@ -15,16 +15,31 @@ local cli = Lummander.new {
 	flag_prevent_help = false                                                        -- <boolean> Prevent help message if not command found. Default: false
 }
 
+local makeFileText = [[
+CFLAGS=-std=c++20
+CC= c++
+
+.PHONY: all clean
+
+all: build
+
+build:
+	$(CC) main.cpp $(CFLAGS) -o main
+
+clean:
+	rm -f main
+]]
+
 -- Add commands
 cli:command("new <link> <name> <rating>", "new practice session")
 		:action(function(parsed, _, _)
 			local dirName = "./" .. parsed.name .. "/"
 			lfs.mkdir(dirName)
-			local codeFile = io.open(dirName .. parsed.name .. ".cpp", "w")
+			local codeFile = io.open(dirName .. "main.cpp", "w")
 			if codeFile ~= nil then
 				codeFile:write(
 					"#include <iostream>\n" ..
-					"using namespace std\n" ..
+					"using namespace std;\n" ..
 					"\n" ..
 					"int main () {\n\n}"
 				)
@@ -38,6 +53,10 @@ cli:command("new <link> <name> <rating>", "new practice session")
 					"\ntime started: " .. os.date("%H:%M %a %x")
 				)
 				infoFile:close()
+			end
+			local makeFile = io.open(dirName .. "Makefile", "w")
+			if makeFile ~= nil then
+				makeFile:write(makeFileText)
 			end
 		end)
 
