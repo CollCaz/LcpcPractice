@@ -33,7 +33,8 @@ clean:
 -- Add commands
 cli:command("new <link> <name> <rating>", "new practice session")
 		:action(function(parsed, _, _)
-			local dirName = "./" .. parsed.name .. "/"
+			local newName = string.gsub(parsed.name, " ", "_")
+			local dirName = "./" .. newName .. "/"
 			lfs.mkdir(dirName)
 			local codeFile = io.open(dirName .. "main.cpp", "w")
 			if codeFile ~= nil then
