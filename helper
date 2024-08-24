@@ -1,4 +1,4 @@
-#/bin/lua
+#!/bin/lua
 -- Require "lummander"
 local Lummander = require "lummander"
 local lfs = require "lfs"
@@ -27,12 +27,22 @@ cli:command("new <value1> <value2>", "new practice session")
 			lfs.mkdir(dirName)
 			local codeFile = io.open(dirName .. parsed.value2 .. ".cpp", "w")
 			if codeFile ~= nil then
-				codeFile:write("#include <iostream>\nusing namespace std;")
+				codeFile:write(
+					"#include <iostream>\n" ..
+					"using namespace std\n" ..
+					"\n" ..
+					"int main () {\n\n}"
+				)
 				codeFile:close()
 			end
 			local infoFile = io.open(dirName .. "info.txt", "w")
 			if infoFile ~= nil then
-				infoFile:write("link: " .. parsed.value1 .. "\ntime started: " .. os.date("%H:%M %a %x") .. "\nrating: ?")
+				infoFile:write(
+					"link: " .. parsed.value1 ..
+					"\ntime started: " .. os.date("%H:%M %a %x") ..
+					"\ntime finished: ?" ..
+					"\nrating: ?"
+				)
 				infoFile:close()
 			end
 		end)
@@ -48,4 +58,5 @@ cli:command("sum <value1> <value2>", "Sum 2 values")
 		end)
 
 -- Parse and execute the command wrote
+cli:parse(arg) -- parse arg and execute if a command was written
 cli:parse(arg) -- parse arg and execute if a command was written
