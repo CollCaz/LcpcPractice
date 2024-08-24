@@ -1,0 +1,4 @@
+link: https://codeforces.com/contest/731/problem/A
+rating: 800
+time started: 20:22 Sat 08/24/24
+time finished: 20:36 Sat 08/24/24
