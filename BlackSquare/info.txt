@@ -1,0 +1,4 @@
+link: https://codeforces.com/contest/431/problem/A
+rating: 800
+time started: 20:15 Sat 08/24/24
+time finished: 20:20 Sat 08/24/24
