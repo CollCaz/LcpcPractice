@@ -1,0 +1,4 @@
+link: https://codeforces.com/contest/686/problem/A
+rating: 800
+time started: 14:46 Sun 08/25/24
+time finished: 15:15 Sun 08/25/24
