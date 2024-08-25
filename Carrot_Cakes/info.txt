@@ -1,3 +1,7 @@
 link: https://codeforces.com/contest/799/problem/A
 rating: 1100
 time started: 12:56 Sun 08/25/24
+time finished: 13:57 Sun 08/25/24
+time finished: 13:59 Sun 08/25/24
+time finished: 13:59 Sun 08/25/24
+time finished: 14:03 Sun 08/25/24
