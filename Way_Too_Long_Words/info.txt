@@ -1,0 +1,4 @@
+link: https://codeforces.com/contest/71/problem/A
+rating: 800
+time started: 14:14 Sun 08/25/24
+time finished: 14:19 Sun 08/25/24
