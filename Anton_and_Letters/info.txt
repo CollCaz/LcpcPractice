@@ -1,0 +1,4 @@
+link: https://codeforces.com/contest/443/problem/A
+rating: 800
+time started: 14:08 Sun 08/25/24
+time finished: 14:12 Sun 08/25/24
