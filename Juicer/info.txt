@@ -1,0 +1,4 @@
+link: https://codeforces.com/contest/709/problem/A
+rating: 900
+time started: 12:23 Sun 08/25/24
+time finished: 12:34 Sun 08/25/24
