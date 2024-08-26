@@ -1,0 +1,4 @@
+link: https://codeforces.com/contest/770/problem/A
+rating: 800
+time started: 14:02 Mon 08/26/24
+time finished: 15:24 Mon 08/26/24
