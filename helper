@@ -11,15 +11,15 @@ CREATE TABLE IF NOT EXISTS days(date UNIQUE, amount);
 ]=]
 
 local updateDayQ = [=[
-INSERT OR IGNORE INTO days(date) VALUES("%s");
+INSERT OR IGNORE INTO days(date, amount) VALUES("%s", 0);
 UPDATE days set amount = amount+1 WHERE date = "%s";
 ]=]
 
 local db = nil
 
-local openDB = function()
+local openDB = function(root)
 	if db == nil then
-		db = sqlite3.open(".db.sqlite")
+		db = sqlite3.open(root .. ".db.sqlite")
 		db:exec(schema)
 	end
 end
@@ -32,12 +32,10 @@ local closeDB = function()
 end
 
 local updateDay = function()
-	openDB();
 	local q = string.format(updateDayQ, os.date("%d/%m/%Y"), os.date("%d/%m/%Y"))
 	if db ~= nil then
 		db:exec(q)
 	end
-	closeDB()
 end
 -- Create a lummander instance
 local cli = Lummander.new {
@@ -46,10 +44,12 @@ local cli = Lummander.new {
 	description = "A simple Helper script to make practicing with CodeForces easier", -- <string> CLI description. Default: ""
 	version = "0.1.1",                                                               -- <string> CLI version. Default: "0.1.0"
 	author = "CollCaz",                                                              -- <string> author. Default: ""
-	root_path = "",                                                                  -- <string> root_path. Default "". Concat this path to load commands of a subfolder
+	root_path = "/home/coll/Stuff/Dev/LcpcPractice/",                                -- <string> root_path. Default "". Concat this path to load commands of a subfolder
 	theme = "default",                                                               -- Default = "default". "default" and "acid" are built-in themes
 	flag_prevent_help = false                                                        -- <boolean> Prevent help message if not command found. Default: false
 }
+
+openDB(cli.root_path)
 
 local makeFileText = [[
 CFLAGS=-std=c++20
@@ -112,7 +112,7 @@ cli:command("done")
 		end)
 cli:command("today")
 		:action(function(_, _, _)
-			openDB()
+			openDB(cli.root_path)
 			local q = string.format("SELECT * FROM days WHERE date = \"%s\" LIMIT 1", os.date("%d/%m/%Y"))
 			if db ~= nil then
 				for x in db:nrows(q) do
@@ -124,3 +124,4 @@ cli:command("today")
 
 -- Parse and execute the command wrote
 cli:parse(arg) -- parse arg and execute if a command was written
+closeDB()
