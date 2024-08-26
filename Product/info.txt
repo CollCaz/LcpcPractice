@@ -1,0 +1,4 @@
+link: https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=1047
+rating: ?
+time started: 17:39 Mon 08/26/24
+time finished: 18:10 Mon 08/26/24
