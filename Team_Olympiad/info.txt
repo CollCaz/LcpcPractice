@@ -1,0 +1,5 @@
+link: https://codeforces.com/contest/490/problem/A
+rating: 800
+time started: 13:11 Mon 08/26/24
+time finished: 13:48 Mon 08/26/24
+time finished: 13:49 Mon 08/26/24
