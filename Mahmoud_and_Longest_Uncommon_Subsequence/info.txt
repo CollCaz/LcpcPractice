@@ -1,0 +1,4 @@
+link: https://codeforces.com/contest/766/problem/A
+rating: 1000
+time started: 22:22 Tue 08/27/24
+time finished: 22:35 Tue 08/27/24
