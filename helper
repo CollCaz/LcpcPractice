@@ -38,13 +38,14 @@ local updateDay = function()
 	end
 end
 
-local ratingName = function(rating)
+local ratingRange = function(rating)
 	local r = tonumber(rating)
-	if (r <= 1000) then return "0-1000" end
-	if (r <= 1500) then return "1000-1500" end
-	if (r <= 2000) then return "1500-2000" end
-	if (r <= 2500) then return "2000-2500" end
-	if (r <= 3000) then return "2500-3000" end
+	if (r == nil) then return rating end
+	if (r < 1000) then return "0-1000" end
+	if (r < 1500) then return "1000-1500" end
+	if (r < 2000) then return "1500-2000" end
+	if (r < 2500) then return "2000-2500" end
+	if (r < 3000) then return "2500-3000" end
 	if (r > 3000) then return "3000-∞" end
 end
 -- Create a lummander instance
@@ -79,10 +80,12 @@ clean:
 -- Add commands
 cli:command("new <link> <name> <rating>", "new practice session")
 		:action(function(parsed, _, _)
-			local newName = string.gsub(parsed.name, " ", "_")
-			local dir1Name = "./" .. ratingName(parsed.rating)
-			lfs.mkdir(dir1Name)
-			local dirName = "./" .. ratingName(parsed.rating) .. "/" .. newName .. "/"
+			local r = parsed.rating
+			if (r == "?") then r = "UNKOWN" end
+			local newName = r .. "-" .. string.gsub(parsed.name, " ", "_")
+			local dirRangeName = cli.root_path .. ratingRange(r)
+			lfs.mkdir(dirRangeName)
+			local dirName = cli.root_path .. ratingRange(r) .. "/" .. newName .. "/"
 			print(dirName)
 			lfs.mkdir(dirName)
 			local codeFile = io.open(dirName .. "main.cpp", "w")
@@ -99,7 +102,7 @@ cli:command("new <link> <name> <rating>", "new practice session")
 			if infoFile ~= nil then
 				infoFile:write(
 					"link: " .. parsed.link ..
-					"\nrating: " .. parsed.rating ..
+					"\nrating: " .. r ..
 					"\ntime started: " .. os.date("%H:%M %a %x")
 				)
 				infoFile:close()
