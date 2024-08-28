@@ -1,0 +1,5 @@
+link: https://codeforces.com/problemset/problem/767/A
+rating: 1100
+time started: 22:35 Tue 08/27/24
+
+time finished: 15:55 Wed 08/28/24
