@@ -1,0 +1,3 @@
+link: https://codeforces.com/contest/2008/problem/A
+rating: UNKOWN
+time started: 17:00 Sun 09/01/24
