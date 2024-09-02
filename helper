@@ -86,7 +86,6 @@ cli:command("new <link> <name> <rating>", "new practice session")
 			local dirRangeName = cli.root_path .. ratingRange(r)
 			lfs.mkdir(dirRangeName)
 			local dirName = cli.root_path .. ratingRange(r) .. "/" .. newName .. "/"
-			print(dirName)
 			lfs.mkdir(dirName)
 			local codeFile = io.open(dirName .. "main.cpp", "w")
 			if codeFile ~= nil then
@@ -111,6 +110,7 @@ cli:command("new <link> <name> <rating>", "new practice session")
 			if makeFile ~= nil then
 				makeFile:write(makeFileText)
 			end
+			os.execute("cd" .. dirName)
 		end)
 
 cli:command("done")
