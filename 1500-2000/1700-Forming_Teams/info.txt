@@ -1,0 +1,3 @@
+link: https://codeforces.com/contest/216/problem/B
+rating: 1700
+time started: 09:49 Tue 09/03/24
