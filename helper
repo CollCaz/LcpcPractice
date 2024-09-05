@@ -110,7 +110,7 @@ cli:command("new <link> <name> <rating>", "new practice session")
 			if makeFile ~= nil then
 				makeFile:write(makeFileText)
 			end
-			os.execute("cd" .. dirName)
+			print(dirName)
 		end)
 
 cli:command("done")
