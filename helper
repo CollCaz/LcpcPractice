@@ -145,6 +145,3 @@ cli:command("today")
 -- Parse and execute the command wrote
 cli:parse(arg) -- parse arg and execute if a command was written
 closeDB()
-cli:parse(arg) -- parse arg and execute if a command was written
-
-closeDB()
