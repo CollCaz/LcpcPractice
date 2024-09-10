@@ -1,46 +1,58 @@
 #include <iostream>
 #include <map>
-#include <set>
 #include <vector>
 using namespace std;
 
-int n, m;
-vector<set<int>> conf;
-map<int, int> color;
+int n, ep;
+enum color {
+  NONE,
+  RED,
+  GREEN,
+  OUT,
+};
 
-int discarded = 0;
+map<int, vector<int>> confs;
+map<int, color> colors;
+
+int removed = 0;
+int staying = 0;
 
 int main() {
-  cin >> n >> m;
-  conf.resize(n * 2);
-  for (int i = 0; i < m; i++) {
-    int s, e;
-    cin >> s >> e;
-    conf[s].insert(e);
-    conf[e].insert(s);
+  cin >> n >> ep;
+  for (int i = 0; i < n; i++) {
+    confs[i] = vector<int>();
+    colors[i] = NONE;
   }
-  vector<int> red;
-  vector<int> green;
-  set<int> visited;
+  for (int i = 0; i < ep; i++) {
+    int p, e;
+    cin >> p >> e;
+    confs[p].push_back(e);
+    confs[e].push_back(p);
+  }
 
   for (int i = 1; i <= n; i++) {
-    int s = (red.size() >= green.size()) ? 1 : 2;
-    // 01 xor 11 = 10
-    // 10 xor 11 = 01
-    int l = s ^ 3;
-    int acc_col = 0;
-    for (int c : conf[i]) {
-      acc_col += color[c];
+    staying++;
+    if (colors[i] != NONE) {
+      continue;
     }
-    if (acc_col == 0) {
-      color[i] = s;
+    bool redFound = false;
+    bool greenFound = false;
+    for (int conf : confs[i]) {
+      redFound = redFound || (colors[conf] == RED);
+      greenFound = greenFound || (colors[conf] == GREEN);
     }
-    if (acc_col == 1) {
-      color[i] = 2;
+    if (!redFound) {
+      colors[i] = RED;
+    } else if (!greenFound) {
+      colors[i] = GREEN;
     } else {
-      color[i] = 0;
+      colors[i] = OUT;
+      removed++;
+      staying--;
     }
   }
-  discarded += ((n - discarded) % 2 == 0) ? 0 : 1;
-  cout << discarded << endl;
+  if ((staying) % 2 != 0) {
+    removed++;
+  }
+  cout << removed << endl;
 }
