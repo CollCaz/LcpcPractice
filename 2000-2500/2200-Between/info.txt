@@ -1,3 +1,3 @@
 link: https://codeforces.com/contest/1815/problem/C
 time started: 12:12 Thu 08/22/24
-rating: ?
+rating: 2200

@@ -1,2 +1,2 @@
 link: https://codeforces.com/contest/1951/problem/D
-rating: ?
+rating: 2000

@@ -1,4 +1,4 @@
-#!/bin/lua
+#!/usr/bin/env lua
 -- Require "lummander"
 local Lummander = require "lummander"
 local lfs = require "lfs"
@@ -82,9 +82,13 @@ cli:command("new <link> <name> <rating>", "new practice session")
 		:action(function(parsed, _, _)
 			local r = parsed.rating
 			if (r == "?") then r = "UNKOWN" end
-			local newName = r .. "-" .. string.gsub(parsed.name, " ", "_")
+			local newName
+			if (r == "UNKOWN") then
+				newName = string.gsub(parsed.name, " ", "_")
+			else
+				newName = r .. "-" .. string.gsub(parsed.name, " ", "_")
+			end
 			local dirRangeName = cli.root_path .. ratingRange(r)
-			lfs.mkdir(dirRangeName)
 			local dirName = cli.root_path .. ratingRange(r) .. "/" .. newName .. "/"
 			lfs.mkdir(dirName)
 			local codeFile = io.open(dirName .. "main.cpp", "w")
@@ -140,4 +144,7 @@ cli:command("today")
 
 -- Parse and execute the command wrote
 cli:parse(arg) -- parse arg and execute if a command was written
+closeDB()
+cli:parse(arg) -- parse arg and execute if a command was written
+
 closeDB()
