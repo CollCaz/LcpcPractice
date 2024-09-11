@@ -10,9 +10,9 @@ int main() {
 
   int steps = 1;
   while (c < colors.length()) {
-		if (i == inst.length()) {
-			break;
-		}
+    if (i == inst.length()) {
+      break;
+    }
     while (i < inst.length()) {
       if (colors[c] == inst[i]) {
         c++;
