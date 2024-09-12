@@ -115,6 +115,7 @@ cli:command("new <link> <name> <rating>", "new practice session")
 				makeFile:write(makeFileText)
 			end
 			print(dirName)
+			os.execute("echo " .. dirName .. " | wl-copy")
 		end)
 
 cli:command("done")
