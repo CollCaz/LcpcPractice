@@ -1,3 +1,4 @@
 link: https://codeforces.com/contest/584/problem/A
 rating: 1000
-time started: 22:25 Sun 09/08/24
+time started: 22:17 Thu 09/12/24
+time finished: 23:25 Thu 09/12/24
