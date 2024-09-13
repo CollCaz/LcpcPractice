@@ -1,0 +1,4 @@
+link: https://codeforces.com/contest/742/problem/A
+rating: 1000
+time started: 16:54 Fri 09/13/24
+time finished: 17:27 Fri 09/13/24
