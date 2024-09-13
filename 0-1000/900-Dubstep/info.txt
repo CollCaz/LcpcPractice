@@ -1,0 +1,4 @@
+link: https://codeforces.com/contest/208/problem/A
+rating: 900
+time started: 00:10 Fri 09/13/24
+time finished: 14:45 Fri 09/13/24
