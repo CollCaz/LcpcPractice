@@ -1,0 +1,4 @@
+link: https://codeforces.com/contest/785/problem/A
+rating: 800
+time started: 19:18 Fri 09/13/24
+time finished: 19:24 Fri 09/13/24
