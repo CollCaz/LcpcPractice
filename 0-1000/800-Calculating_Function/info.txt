@@ -1,0 +1,4 @@
+link: https://codeforces.com/contest/486/problem/A
+rating: 800
+time started: 17:28 Fri 09/13/24
+time finished: 17:46 Fri 09/13/24
