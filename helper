@@ -144,6 +144,43 @@ cli:command("today")
 			closeDB()
 		end)
 
+cli:command("contest <link> <round> <div>")
+		:action(function(parsed, _, _)
+			local dirName = cli.root_path .. "Contests/" .. parsed.round .. "-" .. "div-" .. parsed.div
+			lfs.mkdir(dirName)
+
+			local codeFile = io.open(dirName .. "main.cpp", "w")
+			if codeFile ~= nil then
+				codeFile:write(
+					"#include <iostream>\n" ..
+					"using namespace std;\n" ..
+					"\n" ..
+					"int main () {\n\n}"
+				)
+				codeFile:close()
+			end
+			local infoFile = io.open(dirName .. "info.txt", "w")
+			if infoFile ~= nil then
+				infoFile:write(
+					"link: " .. parsed.link ..
+					"\ntime started: " .. os.date("%H:%M %a %x")
+				)
+				infoFile:close()
+			end
+			local makeFile = io.open(dirName .. "Makefile", "w")
+			if makeFile ~= nil then
+				makeFile:write(makeFileText)
+			end
+			print(dirName)
+			os.execute("echo " .. dirName .. " | wl-copy")
+		end)
+
+cli:command("problem <link> <round> <div> <rank>")
+		:action(function(parsed, _, _)
+			local dirName = cli.root_path .. "Contests/" .. parsed.round .. "-" .. "div-" .. parsed.div .. "/" .. parsed.rank
+			lfs.mkdir(dirName)
+		end)
+
 -- Parse and execute the command wrote
 cli:parse(arg) -- parse arg and execute if a command was written
 closeDB()
