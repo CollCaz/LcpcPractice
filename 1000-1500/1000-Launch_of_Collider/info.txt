@@ -1,3 +1,4 @@
 link: https://codeforces.com/contest/699/problem/A
 rating: 1000
-time started: 16:12 Sat 09/14/24
+time started: 19:12 Sat 09/14/24
+time finished: 19:41 Sat 09/14/24
