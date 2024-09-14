@@ -1,0 +1,4 @@
+link: https://codeforces.com/contest/514/problem/A
+rating: 1200
+time started: 13:33 Sat 09/14/24
+time finished: 13:52 Sat 09/14/24
