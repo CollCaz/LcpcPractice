@@ -146,9 +146,14 @@ cli:command("today")
 
 cli:command("contest <link> <round> <div>")
 		:action(function(parsed, _, _)
-			local dirName = cli.root_path .. "Contests/" .. parsed.round .. "-" .. "div-" .. parsed.div
+			local dirName = cli.root_path .. "Contests/" .. parsed.round .. "-" .. "div-" .. parsed.div .. "/"
 			lfs.mkdir(dirName)
+		end)
 
+cli:command("problem <rank>")
+		:action(function(parsed, _, _)
+			local dirName = "./" .. parsed.rank .. "/"
+			lfs.mkdir(dirName)
 			local codeFile = io.open(dirName .. "main.cpp", "w")
 			if codeFile ~= nil then
 				codeFile:write(
@@ -162,7 +167,6 @@ cli:command("contest <link> <round> <div>")
 			local infoFile = io.open(dirName .. "info.txt", "w")
 			if infoFile ~= nil then
 				infoFile:write(
-					"link: " .. parsed.link ..
 					"\ntime started: " .. os.date("%H:%M %a %x")
 				)
 				infoFile:close()
@@ -173,12 +177,6 @@ cli:command("contest <link> <round> <div>")
 			end
 			print(dirName)
 			os.execute("echo " .. dirName .. " | wl-copy")
-		end)
-
-cli:command("problem <link> <round> <div> <rank>")
-		:action(function(parsed, _, _)
-			local dirName = cli.root_path .. "Contests/" .. parsed.round .. "-" .. "div-" .. parsed.div .. "/" .. parsed.rank
-			lfs.mkdir(dirName)
 		end)
 
 -- Parse and execute the command wrote
