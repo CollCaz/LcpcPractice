@@ -1,0 +1,4 @@
+link: https://codeforces.com/contest/296/problem/A
+rating: 1100
+time started: 18:44 Mon 09/16/24
+time finished: 20:50 Mon 09/16/24
