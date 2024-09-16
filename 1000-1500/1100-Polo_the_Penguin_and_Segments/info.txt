@@ -1,3 +1,4 @@
 link: https://codeforces.com/contest/289/problem/A
 rating: 1100
 time started: 19:43 Sat 09/14/24
+time finished: 20:50 Mon 09/16/24
