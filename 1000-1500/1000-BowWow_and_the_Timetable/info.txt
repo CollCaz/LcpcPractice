@@ -1,0 +1,3 @@
+link: https://codeforces.com/contest/1204/problem/A
+rating: 1000
+time started: 22:20 Mon 09/16/24
