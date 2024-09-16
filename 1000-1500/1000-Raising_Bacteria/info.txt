@@ -1,0 +1,4 @@
+link: https://codeforces.com/contest/579/problem/A
+rating: 1000
+time started: 21:21 Mon 09/16/24
+time finished: 21:41 Mon 09/16/24
