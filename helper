@@ -115,8 +115,7 @@ cli:command("new <link> <name> <rating>", "new practice session")
 			if makeFile ~= nil then
 				makeFile:write(makeFileText)
 			end
-			print(dirName)
-			os.execute("echo " .. dirName .. " | wl-copy")
+			os.execute("echo cd " .. dirName .. " | wl-copy")
 		end)
 
 cli:command("done")
@@ -175,7 +174,6 @@ cli:command("problem <rank>")
 			if makeFile ~= nil then
 				makeFile:write(makeFileText)
 			end
-			print(dirName)
 			os.execute("echo " .. dirName .. " | wl-copy")
 		end)
 
