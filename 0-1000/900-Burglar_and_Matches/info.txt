@@ -1,0 +1,4 @@
+link: https://codeforces.com/contest/16/problem/B
+rating: 900
+time started: 13:37 Thu 09/19/24
+time finished: 14:27 Thu 09/19/24
