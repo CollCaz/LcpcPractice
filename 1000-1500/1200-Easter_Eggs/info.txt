@@ -1,0 +1,4 @@
+link: https://codeforces.com/contest/78/problem/B
+rating: 1200
+time started: 17:00 Thu 09/19/24
+time finished: 17:56 Thu 09/19/24
