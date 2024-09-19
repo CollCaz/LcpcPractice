@@ -1,0 +1,4 @@
+link: https://codeforces.com/contest/463/problem/B
+rating: 1100
+time started: 14:05 Thu 09/19/24
+time finished: 14:26 Thu 09/19/24
