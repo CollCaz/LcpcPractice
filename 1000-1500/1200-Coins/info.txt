@@ -1,0 +1,4 @@
+link: https://codeforces.com/contest/47/problem/B
+rating: 1200
+time started: 14:28 Thu 09/19/24
+time finished: 16:05 Thu 09/19/24
