@@ -1,0 +1,4 @@
+link: https://codeforces.com/contest/270/problem/A
+rating: 1100
+time started: 12:28 Fri 09/20/24
+time finished: 12:46 Fri 09/20/24
