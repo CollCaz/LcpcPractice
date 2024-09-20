@@ -1,0 +1,4 @@
+link: https://codeforces.com/contest/127/problem/A
+rating: 900
+time started: 13:07 Fri 09/20/24
+time finished: 16:16 Fri 09/20/24
