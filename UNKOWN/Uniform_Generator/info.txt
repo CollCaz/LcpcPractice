@@ -1,0 +1,4 @@
+link: https://onlinejudge.org/index.php?option=onlinejudge&page=show_problem&problem=349
+rating: UNKOWN
+time started: 18:52 Sat 09/21/24
+time finished: 22:59 Sat 09/21/24
