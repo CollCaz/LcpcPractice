@@ -85,9 +85,10 @@ cli:command("new <link> <name> <rating>", "new practice session")
 			local newName
 			if (r == "UNKOWN") then
 				newName = string.gsub(parsed.name, " ", "_")
-				newName = string.gsub(parsed.name, "'", "")
+				newName = string.gsub(newName, "'", "")
 			else
 				newName = r .. "-" .. string.gsub(parsed.name, " ", "_")
+				newName = string.gsub(newName, "'", "")
 			end
 			local dirRangeName = cli.root_path .. ratingRange(r)
 			local dirName = cli.root_path .. ratingRange(r) .. "/" .. newName .. "/"
