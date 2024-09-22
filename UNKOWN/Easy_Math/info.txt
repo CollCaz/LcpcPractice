@@ -1,0 +1,3 @@
+link: https://www.spoj.com/problems/EASYMATH/
+rating: UNKOWN
+time started: 13:33 Sun 09/22/24

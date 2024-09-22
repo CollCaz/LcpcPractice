@@ -28,8 +28,8 @@ int main() {
   //   if (i == 10 || i == 20 || i == 25) {
   //     cout << "x";
   //   } else {
-		// 	cout << ".";
-		// }
+  // 	cout << ".";
+  // }
   // }
   // cout << endl;
   while (cin >> s >> m) {
