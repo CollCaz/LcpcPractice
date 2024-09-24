@@ -1,0 +1,3 @@
+link: https://www.spoj.com/problems/MAKETREE/
+rating: UNKOWN
+time started: 18:46 Sun 09/22/24
