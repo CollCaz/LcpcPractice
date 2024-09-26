@@ -1,0 +1,4 @@
+link: https://codeforces.com/contest/433/problem/B
+rating: 1200
+time started: 20:54 Tue 09/24/24
+time finished: 15:16 Thu 09/26/24
