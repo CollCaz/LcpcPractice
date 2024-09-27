@@ -1,0 +1,4 @@
+link: https://codeforces.com/contest/688/problem/B
+rating: 1000
+time started: 00:47 Fri 09/27/24
+time finished: 02:52 Fri 09/27/24
