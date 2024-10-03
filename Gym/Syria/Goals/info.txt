@@ -1,0 +1,3 @@
+link: https://codeforces.com/gym/105264/problem/A
+time started: 15:29 Thu 10/03/24
+time finished: 17:03 Thu 10/03/24
