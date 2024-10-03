@@ -81,6 +81,8 @@ clean:
 cli:command("here <link> <name>", "new problem")
 		:action(function(parsed, _, _)
 			local dirName = "./" .. parsed.name .. "/"
+			dirName = string.gsub(dirName, " ", "_")
+			dirName = string.gsub(dirName, "'", "")
 			lfs.mkdir(dirName)
 			local codeFile = io.open(dirName .. "main.cpp", "w")
 			if codeFile ~= nil then
