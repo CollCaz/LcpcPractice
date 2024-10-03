@@ -1,5 +1,4 @@
 #include <iostream>
-#include <variant>
 using namespace std;
 
 int main() {
@@ -7,10 +6,6 @@ int main() {
   string haystack;
   cin >> haystack;
 
-	auto r = haystack.find(needle);
-  if (r == variant_npos) {
-    cout << "Still Asleep\n";
-  } else {
-    cout << "Woken Up\n";
-  }
+  auto r = haystack.find(needle);
+  cout << ((r == -1) ? "Still Asleep\n" : "Woken Up\n");
 }
