@@ -1,3 +1,4 @@
 link: https://codeforces.com/contest/451/problem/B
 rating: 1300
 time started: 12:06 Fri 09/27/24
+time finished: 14:44 Thu 10/03/24
