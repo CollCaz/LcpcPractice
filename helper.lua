@@ -78,6 +78,34 @@ clean:
 ]]
 
 -- Add commands
+cli:command("here <link> <name>", "new problem")
+		:action(function(parsed, _, _)
+			local dirName = "./" .. parsed.name .. "/"
+			lfs.mkdir(dirName)
+			local codeFile = io.open(dirName .. "main.cpp", "w")
+			if codeFile ~= nil then
+				codeFile:write(
+					"#include <iostream>\n" ..
+					"using namespace std;\n" ..
+					"\n" ..
+					"int main () {\n\n}"
+				)
+				codeFile:close()
+			end
+			local infoFile = io.open(dirName .. "info.txt", "w")
+			if infoFile ~= nil then
+				infoFile:write(
+					"link: " .. parsed.link ..
+					"\ntime started: " .. os.date("%H:%M %a %x")
+				)
+				infoFile:close()
+			end
+			local makeFile = io.open(dirName .. "Makefile", "w")
+			if makeFile ~= nil then
+				makeFile:write(makeFileText)
+			end
+			os.execute("echo cd " .. dirName .. " | wl-copy")
+		end)
 cli:command("new <link> <name> <rating>", "new practice session")
 		:action(function(parsed, _, _)
 			local r = parsed.rating
@@ -90,7 +118,6 @@ cli:command("new <link> <name> <rating>", "new practice session")
 				newName = r .. "-" .. string.gsub(parsed.name, " ", "_")
 				newName = string.gsub(newName, "'", "")
 			end
-			local dirRangeName = cli.root_path .. ratingRange(r)
 			local dirName = cli.root_path .. ratingRange(r) .. "/" .. newName .. "/"
 			lfs.mkdir(dirName)
 			local codeFile = io.open(dirName .. "main.cpp", "w")
