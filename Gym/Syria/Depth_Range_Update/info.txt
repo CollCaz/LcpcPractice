@@ -1,0 +1,2 @@
+link: https://codeforces.com/gym/105264/problem/B
+time started: 17:43 Thu 10/03/24
