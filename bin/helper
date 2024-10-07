@@ -2,41 +2,6 @@
 -- Require "lummander"
 local Lummander = require "lummander"
 local lfs = require "lfs"
-local sqlite3 = require "lsqlite3"
-
-
-
-local schema = [=[
-CREATE TABLE IF NOT EXISTS days(date UNIQUE, amount);
-]=]
-
-local updateDayQ = [=[
-INSERT OR IGNORE INTO days(date, amount) VALUES("%s", 0);
-UPDATE days set amount = amount+1 WHERE date = "%s";
-]=]
-
-local db = nil
-
-local openDB = function(root)
-	if db == nil then
-		db = sqlite3.open(root .. ".db.sqlite")
-		db:exec(schema)
-	end
-end
-
-local closeDB = function()
-	if db ~= nil then
-		db:close()
-		db = nil
-	end
-end
-
-local updateDay = function()
-	local q = string.format(updateDayQ, os.date("%d/%m/%Y"), os.date("%d/%m/%Y"))
-	if db ~= nil then
-		db:exec(q)
-	end
-end
 
 local ratingRange = function(rating)
 	local r = tonumber(rating)
@@ -55,12 +20,10 @@ local cli = Lummander.new {
 	description = "A simple Helper script to make practicing with CodeForces easier", -- <string> CLI description. Default: ""
 	version = "0.1.1",                                                               -- <string> CLI version. Default: "0.1.0"
 	author = "CollCaz",                                                              -- <string> author. Default: ""
-	root_path = "/home/coll/Stuff/Dev/LcpcPractice/",                                -- <string> root_path. Default "". Concat this path to load commands of a subfolder
-	theme = "default",                                                               -- Default = "default". "default" and "acid" are built-in themes
-	flag_prevent_help = false                                                        -- <boolean> Prevent help message if not command found. Default: false
+	root_path = "/home/coll/Dev/LcpcPractice/",                                      -- <string> root_path. Default "". Concat this path to load commands of a subfolder
+	theme = "default",                                                               -- Default = "default". "default" and "acid" are built-in themes,
+	flag_prevent_help = false,                                                       -- <boolean> Prevent help message if not command found. Default: false
 }
-
-openDB(cli.root_path)
 
 local makeFileText = [[
 CFLAGS=-std=c++20
@@ -159,18 +122,6 @@ cli:command("done")
 					infoFile:close()
 				end
 			end
-			updateDay()
-		end)
-cli:command("today")
-		:action(function(_, _, _)
-			openDB(cli.root_path)
-			local q = string.format("SELECT * FROM days WHERE date = \"%s\" LIMIT 1", os.date("%d/%m/%Y"))
-			if db ~= nil then
-				for x in db:nrows(q) do
-					print(x.amount)
-				end
-			end
-			closeDB()
 		end)
 
 cli:command("contest <link> <round> <div>")
@@ -209,4 +160,3 @@ cli:command("problem <rank>")
 
 -- Parse and execute the command wrote
 cli:parse(arg) -- parse arg and execute if a command was written
-closeDB()

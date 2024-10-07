@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+make
+cat t.txt | ./main
