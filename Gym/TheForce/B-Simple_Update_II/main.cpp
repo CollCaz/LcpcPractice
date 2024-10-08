@@ -1,3 +1,4 @@
+#include <algorithm>
 #include <iostream>
 using namespace std;
 
@@ -9,17 +10,11 @@ int main() {
     cin >> n;
     string b;
     cin >> b;
-    int c = 0;
-    int fz = -1;
-    int lz = -1;
-    for (int i = 0; i < b.length(); i++) {
-      if (b[i] == '1')
-        c++;
-      if (fz == -1 && b[i] == '0')
-        fz = i;
-      if (b[i] == '0')
-        lz = i;
-    }
+
+    int c = count(b.begin(), b.end(), '1');
+    int fz = b.find('0');
+    int lz = b.rfind('0');
+
     for (int k = 1; k <= n / 2; k++) {
       if (c >= n - k) {
         cout << 0 << " ";
