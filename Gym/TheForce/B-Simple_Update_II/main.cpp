@@ -8,18 +8,18 @@ int main() {
   for (int i = 0; i < t; i++) {
     int n;
     cin >> n;
-    string b;
-    cin >> b;
+    string s;
+    cin >> s;
 
-    int c = count(b.begin(), b.end(), '1');
-    int fz = b.find('0');
-    int lz = b.rfind('0');
+    int countOnes = count(s.begin(), s.end(), '1');
+    int firstZeroIndex = s.find('0');
+    int lastZeroIndex = s.rfind('0');
 
     for (int k = 1; k <= n / 2; k++) {
-      if (c >= n - k) {
+      if (countOnes >= n - k) {
         cout << 0 << " ";
       } else {
-        cout << (lz - fz) / k << " ";
+        cout << (lastZeroIndex - firstZeroIndex) / k << " ";
       }
     }
     cout << endl;
