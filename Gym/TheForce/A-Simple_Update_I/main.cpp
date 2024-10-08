@@ -10,12 +10,7 @@ int main() {
     cin >> n >> k;
     string b;
     cin >> b;
-    int c = 0;
-    for (char ch : b) {
-      if (ch == '1') {
-        c++;
-      }
-    }
+    int c = count(b.begin(), b.end(), '1');
     cout << max<int>(c, (n - k)) << endl;
   }
 }
