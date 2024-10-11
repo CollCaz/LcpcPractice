@@ -1,0 +1,3 @@
+link: https://codeforces.com/contest/810/problem/C
+rating: 1500
+time started: 13:47 Fri 10/11/24
